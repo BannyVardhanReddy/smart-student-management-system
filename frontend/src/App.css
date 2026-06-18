@@ -7,10 +7,6 @@
   padding-inline: 4rem;
 
   background-color: brown;
-
-  position: sticky;
-  top: 0;
-
 }
 
 .home-header nav{
@@ -32,9 +28,6 @@
   text-align: center;
   padding-block: 1rem;
   padding-inline: 4rem;
-
-  position:absolute;
-  bottom: 0;
 }
 
 .footer p{
@@ -44,7 +37,7 @@
 main{
   padding-inline: 4rem;
   padding-block: 1rem;
-
+  background-color: blanchedalmond;
   color: brown;
 }
 

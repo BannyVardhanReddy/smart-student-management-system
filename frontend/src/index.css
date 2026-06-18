@@ -11,5 +11,7 @@
   font-family: "Open Sans", sans-serif;
 
   /* padding: 0rem 4rem; */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   color: blanchedalmond;
 }
