@@ -1,0 +1,164 @@
+.home-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-block: 1rem;
+  padding-inline: 4rem;
+
+  background-color: brown;
+}
+
+.home-header nav{
+  display: flex;
+  gap: 10px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.link{
+  font-size: 1.2rem;
+  color: blanchedalmond;
+}
+
+.footer{
+  background-color: brown;
+  text-align: center;
+  padding-block: 1rem;
+  padding-inline: 4rem;
+}
+
+.footer p{
+  font-size: 1.1rem;
+}
+
+main{
+  padding-inline: 4rem;
+  padding-block: 1rem;
+
+  color: brown;
+}
+
+.login-section {
+  height: auto;
+  width: 60vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+
+  border-radius: 1rem;
+
+  box-shadow: 0 0 10px black;
+}
+
+.details {
+  padding: 2rem;
+}
+
+.banner-1 {
+  height: 100%;
+  background-image: url('./assets/image.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  border-radius: 0 1rem 1rem 0;
+
+  padding: 2rem;
+}
+
+.banner-2 {
+  height: 100%;
+  background-image: url('./assets/image.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  border-radius: 1rem 0 0 1rem;
+
+  padding: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-block: 5px;
+  font-weight: bold;
+}
+
+.banner-1 p,.banner-2 p {
+  font-size: 1rem;
+}
+
+.description {
+  padding-block: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-block: 0.5rem;
+}
+
+form > * {
+  margin-block: 5px;
+  font-size: 1rem;
+}
+
+#email,
+#password,
+button,
+#name {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 1rem;
+  /* box-shadow: 0 0 10px black; */
+}
+
+button {
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.or {
+  text-align: center;
+}
+
+.active {
+  background-color: blue;
+  color: white;
+}
+
+.terms-conditions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-block: 5px;
+  gap: 10px;
+}
+
+span {
+  color: blue;
+  /* padding-inline: 5px; */
+}
+
+span:hover,
+button:hover {
+  cursor: pointer;
+}
+button:hover{
+  transform: scale(1.05);
+}
+label {
+  font-weight: 600;
+}
+
+.password-details{
+  display: flex;
+  justify-content: space-between;
+}

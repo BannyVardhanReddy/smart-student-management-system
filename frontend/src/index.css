@@ -1,0 +1,21 @@
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+ 
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+
+  /* padding: 0rem 4rem; */
+  color: blanchedalmond;
+}
+
+#root{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+}
