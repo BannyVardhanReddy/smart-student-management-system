@@ -7,7 +7,7 @@ export default function DashboardLayout(){
         <>
             <Header />
             <main>
-                <Outlet />
+                <Outlet />  
             </main>
             <Footer />
         </>
