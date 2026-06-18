@@ -11,12 +11,13 @@ export default function Login(){
     function handleOnChange(e){
         setData({...data,[e.target.name] : e.target.value})
     }
-
+    
     const handleOnSubmit = async (e)=>{
         e.preventDefault();
         try{
             const exists = await axios.post("http://localhost:3000/api/login",data);
             console.log(exists);
+            localStorage.setItem("token",exists.data.token);
             alert(exists.data.message);
         }
         
@@ -28,10 +29,6 @@ export default function Login(){
 
     return(
        <section className="login-section">
-        <div className="banner-2">
-            <h2>Welcome Back</h2>
-            <p>Glad to see you again! Please login to continue your journey.</p>
-        </div>
         <div className="details">
             <h2>Welcome Back</h2>
             <p className = "description ">Login to your account to continue</p>
@@ -41,7 +38,7 @@ export default function Login(){
                 <input type="email" id="email" placeholder="Enter your email" name="email" onChange={handleOnChange}/>
 
                 <label htmlFor="password">Password</label>
-                <input type="password" name="" id="password" placeholder="Enter your password" name="password"
+                <input type="password" id="password" placeholder="Enter your password" name="password"
                 onChange={handleOnChange}/>
 
                 <div className="password-details">

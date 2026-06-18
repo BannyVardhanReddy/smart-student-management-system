@@ -86,7 +86,6 @@ export default function Registration() {
           </p>
         </form>
       </div>
-      <div className="banner-1"></div>
     </section>
   );
 }

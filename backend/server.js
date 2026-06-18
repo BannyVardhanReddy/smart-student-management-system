@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
-
+const jwt = require('jsonwebtoken');
 const User = require("./models/User");
 const app = express();
 
@@ -70,15 +70,26 @@ app.post("/api/login", async (req, res) => {
         user.password
     )
 
-    if (isMatch) {
-      return res.status(200).json({
-        message: "Login Successfull",
-      });
+    if(!isMatch){
+      return res.status(404).json({
+        message:"Wrong email or password"
+      })
     }
 
-    res.status(404).json({
-      message: "Wrong email or password",
+    const token = jwt.sign({
+      id: user._id,
+      email : user.email
+    },process.env.JWT_TOKEN,
+    {
+      expiresIn: "1h"
     });
+
+    res.status(200).json({
+      message: "Login successfull",
+      token: token,
+      user
+    });
+
   } catch (e) {
     res.status(500).json({
       message: "Login failed. Try again",

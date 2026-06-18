@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-export default function HomeHeader(){
+export default function Header(){
     return(
         <section className="home-header">
             <h1>Smart Students</h1>

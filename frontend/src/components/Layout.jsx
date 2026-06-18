@@ -1,10 +1,13 @@
 import {Outlet} from 'react-router-dom';
-import HomeHeader from './HomeHeader';
+import Header from './Header';
 import Footer from './Footer';
+
 export default function Layout(){
+    const token = localStorage.getItem("token");
+    console.log(token);
     return(
         <>
-            <HomeHeader></HomeHeader>
+            <Header />
             <main>
                 <Outlet />
             </main>

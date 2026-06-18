@@ -7,6 +7,10 @@
   padding-inline: 4rem;
 
   background-color: brown;
+
+  position: sticky;
+  top: 0;
+
 }
 
 .home-header nav{
@@ -23,10 +27,14 @@
 }
 
 .footer{
+  width: 100%;
   background-color: brown;
   text-align: center;
   padding-block: 1rem;
   padding-inline: 4rem;
+
+  position:absolute;
+  bottom: 0;
 }
 
 .footer p{
@@ -40,58 +48,29 @@ main{
   color: brown;
 }
 
-.login-section {
+ .login-section {
   height: auto;
-  width: 60vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  width: 100%;
+
+  display: flex;
   justify-content: center;
-  align-items: flex-start;
-
-  border-radius: 1rem;
-
-  box-shadow: 0 0 10px black;
+  align-items: center;
 }
 
 .details {
+  width: max(30%,400px);
+
+  /* border: 1px solid red; */
+  border-radius: 1rem;
+  box-shadow: 0 0 10px brown;
   padding: 2rem;
 }
 
-.banner-1 {
-  height: 100%;
-  background-image: url('./assets/image.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: white;
-
-  border-radius: 0 1rem 1rem 0;
-
-  padding: 2rem;
-}
-
-.banner-2 {
-  height: 100%;
-  background-image: url('./assets/image.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: white;
-
-  border-radius: 1rem 0 0 1rem;
-
-  padding: 2rem;
-}
 
 h2 {
   font-size: 2rem;
   margin-block: 5px;
   font-weight: bold;
-}
-
-.banner-1 p,.banner-2 p {
-  font-size: 1rem;
 }
 
 .description {
@@ -115,7 +94,7 @@ button,
 #name {
   padding: 0.75rem 1rem;
   border-radius: 5px;
-  border: 1px solid;
+  border: 1px solid brown;
   font-size: 1rem;
   /* box-shadow: 0 0 10px black; */
 }
@@ -130,7 +109,7 @@ button {
 }
 
 .active {
-  background-color: blue;
+  background-color: brown;
   color: white;
 }
 
@@ -161,4 +140,4 @@ label {
 .password-details{
   display: flex;
   justify-content: space-between;
-}
+} 

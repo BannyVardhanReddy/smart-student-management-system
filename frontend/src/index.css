@@ -6,16 +6,10 @@
   box-sizing: border-box;
 }
 
-body {
+#root {
   min-height: 100vh;
   font-family: "Open Sans", sans-serif;
 
   /* padding: 0rem 4rem; */
   color: blanchedalmond;
-}
-
-#root{
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 70px 1fr 70px;
 }
