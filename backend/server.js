@@ -36,7 +36,7 @@ app.post("/api/register", async (req, res) => {
 
     const newUser = new User({
       fullName: fullName,
-      email: email,
+      email: email.toLowerCase(),
       password: hashedPassword,
     });
 
