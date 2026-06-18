@@ -7,6 +7,7 @@
   padding-inline: 4rem;
 
   background-color: brown;
+  color: blanchedalmond;
 }
 
 .home-header nav{
@@ -25,6 +26,8 @@
 .footer{
   width: 100%;
   background-color: brown;
+  color: blanchedalmond;
+  
   text-align: center;
   padding-block: 1rem;
   padding-inline: 4rem;
@@ -41,28 +44,33 @@ main{
   color: brown;
 }
 
- .login-section {
-  height: auto;
+
+.login-section {
+  height: 100vh;
   width: 100%;
 
   display: flex;
+
   justify-content: center;
+
   align-items: center;
 }
 
 .details {
-  width: max(30%,400px);
+  width: max(30%, 400px);
 
-  /* border: 1px solid red; */
   border-radius: 1rem;
+
   box-shadow: 0 0 10px brown;
+
   padding: 2rem;
 }
 
-
 h2 {
   font-size: 2rem;
+
   margin-block: 5px;
+
   font-weight: bold;
 }
 
@@ -72,12 +80,15 @@ h2 {
 
 form {
   display: flex;
+
   flex-direction: column;
+
   margin-block: 0.5rem;
 }
 
 form > * {
   margin-block: 5px;
+
   font-size: 1rem;
 }
 
@@ -86,14 +97,17 @@ form > * {
 button,
 #name {
   padding: 0.75rem 1rem;
+
   border-radius: 5px;
+
   border: 1px solid brown;
+
   font-size: 1rem;
-  /* box-shadow: 0 0 10px black; */
 }
 
 button {
   border: none;
+
   box-shadow: 0 0 5px rgba(0, 0, 0, 1);
 }
 
@@ -103,34 +117,41 @@ button {
 
 .active {
   background-color: brown;
+
   color: white;
 }
 
 .terms-conditions {
   display: flex;
+
   justify-content: flex-start;
+
   align-items: center;
+
   padding-block: 5px;
+
   gap: 10px;
 }
 
 span {
   color: blue;
-  /* padding-inline: 5px; */
 }
 
 span:hover,
 button:hover {
   cursor: pointer;
 }
-button:hover{
+
+button:hover {
   transform: scale(1.05);
 }
+
 label {
   font-weight: 600;
 }
 
-.password-details{
+.password-details {
   display: flex;
+
   justify-content: space-between;
-} 
+}
