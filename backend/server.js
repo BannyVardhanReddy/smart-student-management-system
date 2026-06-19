@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 require("dotenv").config();
 const jwt = require('jsonwebtoken');
 const User = require("./models/User");
+const Student = require("./models/Student");
 const app = express();
 
 app.use(cors());
@@ -26,17 +27,46 @@ app.get("/", (req, res) => {
 app.post("/api/register", async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
-    const existingUser = await User.findOne({ email: email });
+    const LowerCaseEmail = email.toLowerCase();
+    const existingUser = await User.findOne({ email: LowerCaseEmail });
+    
     if (existingUser) {
       return res.status(400).json({
         message: "Email already registered.",
       });
     }
+
+    if(fullName.length < 3){
+      return res.status(400).json({
+        message: "Name must be at least 3 characters long"
+      });
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!emailRegex.test(email)){
+      return res.status(400).json({
+        message: "Invalid email format"
+      });
+    }
+
+    if(password.length < 6){
+      return res.status(400).json({
+        message: "Password must be at least 6 characters long"
+      });
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if(!passwordRegex.test(password)){
+      return res.status(400).json({
+        message: "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character"
+      });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
       fullName: fullName,
-      email: email.toLowerCase(),
+      email: LowerCaseEmail,
       password: hashedPassword,
     });
 
@@ -56,11 +86,10 @@ app.post("/api/register", async (req, res) => {
 app.post("/api/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-
-
-    const user = await User.findOne({ email: email });
+    const LowerCaseEmail = email.toLowerCase();
+    const user = await User.findOne({ email: LowerCaseEmail });
     if(!user){
-        return res.status(404).json({
+        return res.status(401).json({
             message: "Wrong email or password"
         })
     }
@@ -71,7 +100,7 @@ app.post("/api/login", async (req, res) => {
     )
 
     if(!isMatch){
-      return res.status(404).json({
+      return res.status(401).json({
         message:"Wrong email or password"
       })
     }
@@ -96,6 +125,108 @@ app.post("/api/login", async (req, res) => {
     });
   }
 });
+
+app.get('/api/students', async (req, res) => {
+  try{
+    const students = await Student.find();
+    res.status(200).json({
+      message: "Studnets fetched successfully",
+      students
+    });
+  } catch(error){
+    res.status(500).json({
+      message: "Error fetching Students",
+      error: error.message
+    });
+  }
+});
+
+app.post('/api/students', async (req, res) => {
+  try{
+    const { firstName, lastName, rollNo, email, phone, classs, section, address, city, state, country } = req.body;
+    const existingStudent = await Student.findOne({ rollNo: rollNo });
+    if(existingStudent){
+      return res.status(400).json({
+        message: "Roll number already registered"
+      });
+    }
+    const newStudent = new Student({
+      firstName: firstName,
+      lastName: lastName,
+      rollNo: rollNo,
+      email: email,
+      phone: phone,
+      class: classs,
+      section: section,
+      address: address,
+      city: city,
+      state: state,
+      country: country
+    });
+    await newStudent.save();
+    res.status(200).json({
+      message: "Student added successfully"
+    });
+  } catch(error){
+    res.status(500).json({
+      message: "Error adding Student",
+      error: error.message
+    });
+  }
+});
+
+app.put('/api/student/:id', async (req, res) => {
+  try{
+    const { firstName, lastName, rollNo, email, phone, classs, section, address, city, state, country } = req.body;
+    const student = await Student.findById(req.params.id);
+    if(!student){
+      return res.status(404).json({
+        message: "Student not found"
+      });
+    }
+    student.firstName = firstName || student.firstName;
+    student.lastName = lastName || student.lastName;
+    student.rollNo = rollNo || student.rollNo;
+    student.email = email || student.email;
+    student.phone = phone || student.phone;
+    student.class = classs || student.class;
+    student.section = section || student.section;
+    student.address = address || student.address;
+    student.city = city || student.city;
+    student.state = state || student.state;
+    student.country = country || student.country;
+    await student.save();
+    res.status(200).json({
+      message: "Student updated successfully"
+    });
+  } catch(error){
+    res.status(500).json({
+      message: "Error updating Student",
+      error: error.message
+    });
+  }
+})
+
+app.delete('/api/student/:id', async (req, res) => {
+  try{
+    const student = await Student.findById(req.params.id);
+    if(!student){
+      return res.status(404).json({
+        message: "Student not found"
+      });
+    }
+    await student.deleteOne();
+    res.status(200).json({
+      message: "Student deleted successfully"
+    });
+  } catch(error){
+    res.status(500).json({
+      message: "Error deleting Student",
+      error: error.message
+    });
+  }
+})
+
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port: http://localhost:${process.env.PORT}`);
 });
