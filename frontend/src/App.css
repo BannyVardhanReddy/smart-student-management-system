@@ -54,6 +54,8 @@ main{
   justify-content: center;
 
   align-items: center;
+
+  background: linear-gradient(135deg, #506fdd, #e0eb84);
 }
 
 .details {
@@ -61,9 +63,11 @@ main{
 
   border-radius: 1rem;
 
-  box-shadow: 0 0 10px brown;
+  box-shadow: 0 0 10px rgb(26, 26, 37);
 
   padding: 2rem;
+
+  border: 1px solid rgb(48, 48, 247);
 }
 
 h2 {
@@ -76,6 +80,7 @@ h2 {
 
 .description {
   padding-block: 5px;
+  font-weight: 500;
 }
 
 form {
@@ -100,25 +105,30 @@ button,
 
   border-radius: 5px;
 
-  border: 1px solid brown;
+  border: 1px solid rgb(48, 48, 247);
 
   font-size: 1rem;
+
+  background-color: rgb(230, 226, 226);
 }
 
 button {
   border: none;
 
-  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 10px rgb(26, 26, 37);
 }
 
 .or {
   text-align: center;
+
+  font-weight: 600;
 }
 
 .active {
-  background-color: brown;
+  background-color: rgb(50, 42, 165);
 
   color: white;
+
 }
 
 .terms-conditions {
@@ -134,7 +144,7 @@ button {
 }
 
 span {
-  color: blue;
+  color: rgb(63, 13, 110)
 }
 
 span:hover,
