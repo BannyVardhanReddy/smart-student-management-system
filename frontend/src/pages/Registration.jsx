@@ -29,6 +29,12 @@ export default function Registration() {
     }
 
   }
+  // Inside your component function:
+const [showPassword, setShowPassword] = useState(false);
+
+const togglePasswordVisibility = () => {
+  setShowPassword(!showPassword);
+};
 
   return (
     <section className="login-section">
@@ -57,15 +63,25 @@ export default function Registration() {
             onChange={handleOnChange}
           />
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={data.password}
-            id="password"
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-          />
+<label htmlFor="password">Password</label>
+<div className="password-wrapper">
+  <input
+    type={showPassword ? "text" : "password"} // Toggles type dynamically
+    id="password"
+    placeholder="Enter your password"
+    name="password"
+    onChange={handleOnChange}
+  />
+  <button
+    type="button"
+    className="toggle-password-btn"
+    onClick={togglePasswordVisibility}
+    aria-label={showPassword ? "Hide password" : "Show password"}
+  >
+    
+    {showPassword ? '👁️' : '👁️‍🗨️'} 
+  </button>
+</div>
 
 
           <div className="terms-conditions">
@@ -81,8 +97,9 @@ export default function Registration() {
           </button>
 
           <p className="or">
-            Already have an account?{" "}
-              <Link to="/">Login here</Link>
+            Already have an account?{"   "}
+              <Link to="/" style={{textDecoration:"none",
+            fontWeight:"500",textDecorationColor:"rgb(63, 13, 110)"}}>Login here</Link>
           </p>
         </form>
       </div>

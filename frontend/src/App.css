@@ -37,131 +37,192 @@
   font-size: 1.1rem;
 }
 
-main{
-  padding-inline: 4rem;
-  padding-block: 1rem;
-  background-color: blanchedalmond;
-  color: brown;
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000; 
+}
+
+.background{
+  background-color: #5C556A;
+  width: 100%;
+  height: 100vh;
+}
+
+.main1{
+  margin: auto;
+  height: 85vh;
+  width: 70%;
+  margin-top: 3.5%;
+  border-radius: 15px;
+  background-color: #24202c;
+  display: flex;
+}
+
+.image{
+  background-image: url('C:/Users/ECSLAB 5/Documents/32B9/1000138625.png');
+  padding: 10px;
+  height:100%;
+  width:50%;
+}
 
 .login-section {
-  height: 100vh;
+  padding: 2.5rem;
+  border-radius: 16px;
   width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  background: linear-gradient(135deg, #506fdd, #e0eb84);
+  margin-top: 5%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
-.details {
-  width: max(30%, 400px);
-
-  border-radius: 1rem;
-
-  box-shadow: 0 0 10px rgb(26, 26, 37);
-
-  padding: 2rem;
-
-  border: 1px solid rgb(48, 48, 247);
-}
-
-h2 {
-  font-size: 2rem;
-
-  margin-block: 5px;
-
-  font-weight: bold;
+.details h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .description {
-  padding-block: 5px;
-  font-weight: 500;
+  color: #b3aebf; /* Muted text color */
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
 }
 
+/* Form Layout */
 form {
   display: flex;
-
   flex-direction: column;
-
-  margin-block: 0.5rem;
-}
-
-form > * {
-  margin-block: 5px;
-
-  font-size: 1rem;
-}
-
-#email,
-#password,
-button,
-#name {
-  padding: 0.75rem 1rem;
-
-  border-radius: 5px;
-
-  border: 1px solid rgb(48, 48, 247);
-
-  font-size: 1rem;
-
-  background-color: rgb(230, 226, 226);
-}
-
-button {
-  border: none;
-
-  box-shadow: 0 0 10px rgb(26, 26, 37);
-}
-
-.or {
-  text-align: center;
-
-  font-weight: 600;
-}
-
-.active {
-  background-color: rgb(50, 42, 165);
-
-  color: white;
-
-}
-
-.terms-conditions {
-  display: flex;
-
-  justify-content: flex-start;
-
-  align-items: center;
-
-  padding-block: 5px;
-
-  gap: 10px;
-}
-
-span {
-  color: rgb(63, 13, 110)
-}
-
-span:hover,
-button:hover {
-  cursor: pointer;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 label {
-  font-weight: 600;
+  font-size: 0.85rem;
+  color: #d1cbdc;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
+/* Inputs & Form Fields */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 1.25rem;
+  border: 1px solid #5C556A; /* Using your exact sampled color code for borders */
+  background-color: #24202c;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7963E0; /* Accent glow on focus */
+}
 .password-details {
   display: flex;
-
   justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  color: #b3aebf;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-me input {
+  cursor: pointer;
+  accent-color: #7963E0; /* Changes checkbox color to match theme */
+}
+
+.password-details span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.password-details span:hover {
+  color: #7963E0;
+}
+
+/* Action Buttons */
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Primary Login Button */
+button.active {
+  background-color: #7963E0; /* Vibrant indigo/purple button */
+  color: white;
+  margin-bottom: 1rem;
+}
+
+button.active:hover {
+  background-color: #6551ca;
+  transform: scale(1.02);
+}
+
+/* Divider "or" text */
+.or {
+  text-align: center;
+  color: #b3aebf;
+  font-size: 0.85rem;
+  margin: 0.5rem 0 1rem 0;
+  position: relative;
+}
+
+/* Secondary Button (Google) */
+button[type="submit"]:not(.active) {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #5C556A;
+  margin-bottom: 1.5rem;
+}
+
+button[type="submit"]:not(.active):hover {
+  background-color: rgba(92, 85, 106, 0.2);
+}
+
+/* Footer / Registration Link */
+form > p.or:last-of-type {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+form > p.or:last-of-type a {
+  color: #7963E0 !important; /* Forces your React link to match the custom purple theme */
+  transition: text-decoration 0.2s;
+}
+
+form > p.or:last-of-type a:hover {
+  text-decoration: underline !important;
 }
