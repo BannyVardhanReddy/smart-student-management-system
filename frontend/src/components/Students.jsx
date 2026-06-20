@@ -7,10 +7,7 @@ export default function Students() {
 
   return (
     <div className="students">
-      <div className="intro">
-        <h1>Student Management System</h1>
-        <p>Every Student On record</p>
-      </div>
+      <h2 style={{fontFamily: 'Courier Prime'}}>Hello, {localStorage.getItem('user')?.name ?? 'User'}</h2>
       <div className="data-cards">
         <div>
           <p>Total Students</p>
@@ -25,7 +22,7 @@ export default function Students() {
           <h2>00</h2>
         </div>
         <div>
-          <p>Class-B</p>
+          <p>Class-C</p>
           <h2>00</h2>
         </div>
       </div>
@@ -38,11 +35,11 @@ export default function Students() {
         />
 
         <button className="class-btn">All</button>
-        <button className="class-btn">Class-A</button>
-        <button className="class-btn">Class-B</button>
-        <button className="class-btn">Class-c</button>
+        <button className="class-btn">Class</button>
+        <button className="class-btn">Section</button>
+        <button className="class-btn">City</button>
         <button
-          className="add-btn"
+          className="add-student-btn"
           onClick={() => {
             setAdd((prev) => !prev);
           }}

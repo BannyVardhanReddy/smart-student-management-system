@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Students from "./components/Students";
-
+import Contact from "./components/Contact";
 export default function App(){
   return(
     <BrowserRouter>
@@ -26,6 +26,7 @@ export default function App(){
         >
           <Route index element={<Dashboard />} />
           <Route path="/dashboard/students" element={<Students />} />
+          <Route path="/dashboard/contact" element={<Contact />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
