@@ -15,7 +15,7 @@ export default function Login() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      const exists = await axios.post("http://localhost:5000/api/login", data);
+      const exists = await axios.post("http://localhost:5000/api/users/login", data);
       console.log(exists);
       localStorage.setItem("token", exists.data.token);
       localStorage.setItem("user", JSON.stringify(exists.data.user));
