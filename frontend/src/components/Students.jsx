@@ -1,5 +1,7 @@
 import { useState } from "react";
-
+import './Students.css'
+import AddStudent from "./AddStudent";
+import StudentTable from "./StudentTable";
 export default function Students() {
   const [add, setAdd] = useState(false);
 
@@ -39,8 +41,6 @@ export default function Students() {
         <button className="class-btn">Class-A</button>
         <button className="class-btn">Class-B</button>
         <button className="class-btn">Class-c</button>
-      </div>
-      <div className="add-section">
         <button
           className="add-btn"
           onClick={() => {
@@ -49,11 +49,11 @@ export default function Students() {
         >
           +Add Student
         </button>
-
-        {add && <p>Form to add students</p>}
       </div>
-      {/* <StudentList /> */}
-      <p>Table with students data</p>
+      {add && <AddStudent />}
+
+      {/* <p>Table with students data</p> */}
+      <StudentTable></StudentTable>
     </div>
   );
 }

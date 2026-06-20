@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Students from "./components/Students";
+
 export default function App(){
   return(
     <BrowserRouter>

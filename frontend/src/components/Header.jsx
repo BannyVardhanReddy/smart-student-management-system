@@ -13,7 +13,7 @@ export default function Header() {
     <section className="home-header">
       <div className="left">
         <h1>Smart Students</h1>
-        <p>Hello, {user.fullName} </p>
+        <p>Hello, {user?.fullName} </p>
       </div>
       <div className="right">
         <p className="active">Home</p>

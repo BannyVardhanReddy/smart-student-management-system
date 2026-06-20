@@ -14,4 +14,7 @@
   grid-template-rows: auto 1fr auto;
 
   color: white;
+
+  background-color: brown;
+  color: white;
 }
