@@ -55,7 +55,7 @@ export default function Login() {
           <div className="password-details">
             <div className="remember-me">
               <input type="checkbox" name="" id="remember" />
-              <label htmlFor="remember">Remember me</label>
+              <label htmlFor="remember">&nbsp;Remember me</label>
             </div>
             <span>Forgot Password?</span>
           </div>
@@ -66,7 +66,10 @@ export default function Login() {
           <button type="submit">Login with Google</button>
 
           <p className="or">
-            Dont have an account? <Link to="/register">Register here</Link>
+            Don't have an account?&nbsp;&nbsp;&nbsp;<Link to="/register" 
+            style={{textDecoration:"none",
+            fontWeight:"500",textDecorationColor:"rgb(63, 13, 110)"}}>
+              Register here</Link>
           </p>
         </form>
       </div>

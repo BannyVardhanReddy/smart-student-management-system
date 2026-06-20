@@ -1,0 +1,108 @@
+.students>*{
+    padding-block: 0.75rem;
+}
+
+.intro{
+    border-bottom: 1px solid;
+}
+
+.data-cards{
+    padding-block: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 1rem;
+}
+
+.data-cards div{
+    background-color: beige;
+
+    padding: 1rem;
+    color: brown;
+
+    border-radius: 5px;
+}
+
+.data-cards div h2{
+    font-size: 3rem;
+}
+
+.search-options{
+    display: grid;
+    grid-template-columns: 8fr repeat(4, 1fr) 1.5fr;
+    gap: 1rem;
+}
+
+.search-options>*{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+
+    outline: none;
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: beige;
+}
+
+.add-student-form{
+    background-color: beige;
+    color: brown;
+
+    padding-block: 1rem;
+    padding-inline: 2rem;
+
+    margin-block: 1rem;
+
+    border-radius: 5px;
+}
+
+.add-student-form form>*{
+    padding-block: 0.5rem;
+}
+.row-1{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 1rem;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.row-2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+
+    gap: 1rem;
+}
+
+.add-student-form form input{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.row-3{
+    display: grid;
+    grid-template-columns: repeat(2,100px);
+
+    gap: 0.5rem;
+
+    justify-content: end;
+}
+
+.row-3 button{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    background-color: brown;
+    color: white;
+
+    border-radius: 5px;
+}
+

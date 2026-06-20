@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import Dashboard from "./pages/Dashboard";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Students from "./components/Students";
 
 export default function App(){
   return(
@@ -24,13 +25,8 @@ export default function App(){
         }
         >
           <Route index element={<Dashboard />} />
+          <Route path="/dashboard/students" element={<Students />} />
         </Route>
-        {/* <Route path="/" element={<DashboardLayout />} >
-          <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Registration />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route> */}
       </Routes>
     </BrowserRouter>
   )
