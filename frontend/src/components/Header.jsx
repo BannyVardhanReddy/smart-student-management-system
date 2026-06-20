@@ -4,7 +4,7 @@ export default function Header(){
     return(
         <section className="home-header">
             <h1>Smart Students</h1>
-            <p>Hello, {user.fullName} </p>
+            <p>Hello, {user?.fullName ?? "User"} </p>
         </section>
     )
 }
