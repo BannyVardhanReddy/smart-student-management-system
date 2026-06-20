@@ -16,8 +16,7 @@ export default function Header() {
         <p>Hello, {user?.fullName} </p>
       </div>
       <div className="right">
-        <p className="active">Home</p>
-        {/* <p>Students</p> */}
+        <Link to="/dashboard" className="link">Home</Link>
         <Link to="/dashboard/students" className="link">Student</Link>
         <p>Contact</p>
         <p onClick={handleOnLogout}>Logout</p>
