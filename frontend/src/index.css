@@ -1,5 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+:root{
+  /* Backgrounds */
+  --bg: #15131C;            /* page background */
+
+  /* Surfaces */
+  --paper: #211F2B;         /* card / panel background */
+  --paper-alt: #2A2738;     /* input fields, one step lighter than paper */
+
+  /* Text */
+  --text-onbg: #F5F3FA;     /* light text directly on page background */
+  --ink: #F5F3FA;           /* text on cards (cards are dark) */
+  --ink-soft: #9D99AE;      /* secondary/muted text on cards */
+
+  /* Primary accent */
+  --purple: #6C5DD3;       /* primary buttons, links, active states */
+  --purple-dark: #5A4DB8;  /* hover state for primary accent */
+
+  /* Status colors */
+  --coral: #F2785C;         /* inactive / danger / pending */
+  --sage: #34D399;          /* active / success / done */
+
+  /* Lines */
+  --rule: #3A3650;          /* dashed dividers, borders, card outlines */
+
+  /* Accessibility */
+  --focus-ring: #A78BFA;    /* keyboard focus outline */
+
+  /* Radius */
+  --radius: 3px;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -15,6 +47,11 @@
 
   color: white;
 
-  background-color: brown;
-  color: white;
+  background: radial-gradient(circle at 20% -10%, #2A2440 0%, transparent 55%),
+      var(--bg);
+  color: var(--ink);
+}
+
+form,h1,h2,h3,h4,h5,h6,button{
+  font-family: 'Work Sans';
 }

@@ -1,36 +1,37 @@
-export default function Header(){
-    const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
-    return(
-        <section className="home-header">
-            <h1>Smart Students</h1>
-            <p>Hello, {user?.fullName ?? "User"} </p>
-        </section>
-    )
-}
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
-
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
-  function handleOnLogout(){
+  const navigate = useNavigate();
+
+  function handleOnLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
+    navigate("/login");
   }
+
   return (
     <section className="home-header">
       <div className="left">
-        <h1>Smart Students</h1>
-        <p>Hello, {user?.fullName} </p>
+        <h1 style={{ fontFamily: "Courier Prime", fontSize: "2rem" }}>
+          Student Management System
+        </h1>
+        <p>Every Student On record</p>
       </div>
       <div className="right">
-        <p className="active">Home</p>
-        {/* <p>Students</p> */}
-        <Link to="/dashboard/students" className="link">Student</Link>
-        <p>Contact</p>
-        <p onClick={handleOnLogout}>Logout</p>
+        <Link to="/dashboard" className="link">
+          Home
+        </Link>
+        <Link to="/dashboard/students" className="link">
+          Student
+        </Link>
+        <Link to="/dashboard/contact" className="link">
+          Contact
+        </Link>
+        <button onClick={handleOnLogout} className="logout-btn">
+          Logout
+        </button>
       </div>
     </section>
   );

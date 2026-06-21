@@ -1,108 +1,219 @@
-.students>*{
-    padding-block: 0.75rem;
+.students > * {
+  padding-block: 0.75rem;
 }
 
-.intro{
-    border-bottom: 1px solid;
+.intro {
+  border-bottom: 1px solid;
 }
 
-.data-cards{
-    padding-block: 2rem;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+.data-cards {
+  padding-block: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-    gap: 1rem;
+  gap: 1rem;
 }
 
-.data-cards div{
-    background-color: beige;
+.data-cards div {
+  background-color: var(--paper);
 
-    padding: 1rem;
-    color: brown;
+  padding: 1rem;
+  color: var(--ink-soft);
 
-    border-radius: 5px;
+  border-radius: 5px;
+
+  border: 1px solid var(--ink-soft);
+  border-left: 4px solid var(--ink-soft);
 }
 
-.data-cards div h2{
-    font-size: 3rem;
+.data-cards div h2 {
+  font-size: 3rem;
+  color: var(--ink);
 }
 
-.search-options{
-    display: grid;
-    grid-template-columns: 8fr repeat(4, 1fr) 1.5fr;
-    gap: 1rem;
+.search-options {
+  display: grid;
+  grid-template-columns: 8fr repeat(4, 1fr) 1.5fr;
+  gap: 1rem;
 }
 
-.search-options>*{
+.search-options > * {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+
+  outline: none;
+  border: none;
+
+  border-radius: 5px;
+
+  background-color: var(--paper-alt);
+  color: var(--ink);
+
+  border-bottom: 4px solid var(--purple);
+}
+
+.add-student-btn {
+  background-color: var(--purple);
+  color: var(--ink);
+  border: 0;
+}
+
+.add-student-btn:hover {
+  background-color: var(--purple-dark);
+  cursor: pointer;
+}
+.add-student-form {
+  background-color: var(--paper);
+  color: var(--ink);
+
+  padding-block: 1rem;
+  padding-inline: 2rem;
+
+  margin-block: 1rem;
+
+  border-radius: 5px;
+}
+
+.add-student-form form > * {
+  padding-block: 0.5rem;
+}
+
+.row-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 1rem;
+}
+
+.add-student-form form input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+
+  background-color: var(--paper-alt);
+    color: var(--ink);
+  outline: none;
+  border: none;
+}
+
+.add-student-form form input:focus {
+  outline: 2px solid var(--focus-ring);
+}
+
+.add-student-form form label {
+  font-family: "Courier Prime";
+  color: var(--ink-soft);
+}
+
+.row-3 button {
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+
+  color: var(--ink);
+}
+
+.add-btn {
+  background-color: var(--purple);
+  border-radius: 0;
+
+  font-weight: bold;
+}
+.cancel-btn{
+    background-color: var(--paper);
+    border: 1px solid var(--rule) !important;
+}
+
+.add-btn:hover {
+  background-color: var(--purple-dark);
+  cursor: pointer;
+}
+
+.row-3 {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+
+  gap: 0.5rem;
+
+  justify-content: end;
+}
+
+.edit-student-form {
+  border-radius: 0px;
+  margin: 0px;
+}
+
+.table-container {
+  border: 2px solid var(--rule);
+  padding: 0px;
+
+  margin-block-start: 1rem;
+}
+
+.row-combined {
+  border-bottom: 1px solid var(--rule);
+}
+
+.row {
+  display: grid;
+
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 3fr 1fr 1fr;
+  gap: 1rem;
+
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  background-color: var(--paper);
+
+  color: var(--ink);
+
+  font-family: "Work Sans";
+}
+
+.head {
+  font-family: "Courier Prime";
+
+  border-bottom: 2px solid var(--rule);
+}
+
+.edit-btn, .delete-btn{
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    background-color: var(--paper-alt);
 
     outline: none;
     border: none;
 
-    border-radius: 5px;
+    color: var(--ink);
 
-    background-color: beige;
+     font-weight: bold;
 }
 
-.add-student-form{
-    background-color: beige;
-    color: brown;
-
-    padding-block: 1rem;
-    padding-inline: 2rem;
-
-    margin-block: 1rem;
-
-    border-radius: 5px;
+.delete-btn{
+    color: var(--coral);
 }
 
-.add-student-form form>*{
-    padding-block: 0.5rem;
-}
-.row-1{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 1rem;
+.edit-btn{
+    color: var(--sage);
 }
 
-.col{
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
+.edit-btn:hover, .delete-btn:hover{
+    cursor: pointer;
+    background-color: var(--purple);
 }
-
-.row-2{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-
-    gap: 1rem;
-}
-
-.add-student-form form input{
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-}
-
-.row-3{
-    display: grid;
-    grid-template-columns: repeat(2,100px);
-
-    gap: 0.5rem;
-
-    justify-content: end;
-}
-
-.row-3 button{
-    padding: 0.5rem 1rem;
-    outline: none;
-    border: none;
-    font-size: 1rem;
-    background-color: brown;
-    color: white;
-
-    border-radius: 5px;
-}
-
