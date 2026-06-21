@@ -35,116 +35,54 @@ export default function Login() {
   };
 
   return (
-    //      <section className="login-section">
-    //        <div className="details">
-    //          <h2>Welcome Back</h2>
-    //          <p className="description ">Login to your account to continue</p>
-
-    //          <form action="">
-    //            <label htmlFor="email">Email</label>
-    //            <input
-    //              type="email"
-    //              id="email"
-    //              placeholder="Enter your email"
-    //              name="email"
-    //              onChange={handleOnChange}
-    //            />
-    //  <label htmlFor="password">Password</label>
-    //  <div className="password-wrapper">
-    //   <input
-    //      type={showPassword ? "text" : "password"} // Toggles type dynamically
-    //      id="password"
-    //      placeholder="Enter your password"
-    //      name="password"
-    //     onChange={handleOnChange}
-    //    />
-    //   <button 
-    //      type="button" 
-    //      className="toggle-password-btn" 
-    //      onClick={togglePasswordVisibility}
-    //      aria-label={showPassword ? "Hide password" : "Show password"}
-    //    >
-    //      {/* Clean black & white unicode eye icons */}
-    //      {showPassword ? '👁️' : '👁️‍🗨️'} 
-    //    </button>
-    //  </div>
-
-    //            <div className="password-details">
-    //              <div className="remember-me">
-    //                <input type="checkbox" name="" id="remember" />
-    //                <label htmlFor="remember">&nbsp;Remember me</label>
-    //              </div>
-    //              <span>Forgot Password?</span>
-    //            </div>
-    //            <button className="active" onClick={handleOnSubmit}>
-    //            Login
-    //            </button>
-    //            <p className="or ore">or</p>
-    //            <button type="submit">Login with Google</button>
-    //           <p className="or">
-    //              Don't have an account?{"     "}<Link to="/register" 
-    //              style={{textDecoration:"none",
-    //              fontWeight:"500",textDecorationColor:"rgb(63, 13, 110)"}}>
-    //                Register here</Link>
-    //            </p>
-    //         </form>
-    //        </div>
-    //      </section>
     <div className="background">
-      <div className="main1">
+      <div className="main">
         <div className="image">
 
         </div>
-        <div>
-          <section className="login-section">
+        <div className="login-section">
+          <section >
             <div className="details">
               <h2>Welcome Back</h2>
               <p className="description ">Login to your account to continue</p>
-              <form action="">
-                <label htmlFor="email">Email</label>
+              <label>Email address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                name="email"
+                onChange={handleOnChange}/>
+              <label htmlFor="password">Password</label>
+              <div className="password-wrapper">
                 <input
-                  type="email"
-                  id="email"
-                  placeholder="Enter your email"
-                  name="email"
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  placeholder="Enter your password"
+                  name="password"
                   onChange={handleOnChange}
                 />
-                <label htmlFor="password">Password</label>
-                <div className="password-wrapper">
-                  <input
-                    type={showPassword ? "text" : "password"} // Toggles type dynamically
-                    id="password"
-                    placeholder="Enter your password"
-                    name="password"
-                    onChange={handleOnChange}
-                  />
-                  <button
-                    type="button"
-                    className="toggle-password-btn"
-                    onClick={togglePasswordVisibility}
-                    aria-label={showPassword ? "Hide password" : "Show password"}
-                  >
-                    {showPassword ? '👁️' : '👁️‍🗨️'}
-                  </button>
-                </div>
-                <div className="password-details">
-                  <div className="remember-me">
-                    <input type="checkbox" name="" id="remember" />
-                    <label htmlFor="remember" style={{marginBottom:'-3px'}}>&nbsp;Remember me</label>
-                  </div>
-                  <span>Forgot Password?</span>
-                </div>
-                <button className="active" onClick={handleOnSubmit}>
-                  Login
+                <button 
+                  type="button" 
+                  className="toggle-password-btn" 
+                  onClick={togglePasswordVisibility}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? '👁️' : '👁️‍🗨️'} 
                 </button>
-                <p className="or ore">or</p>
-                <button className="active" type="submit">Login with Google</button>
-                <p className="or">
-                  Don't have an account?{"     "}<Link to="/register"
-                    style={{ textDecoration: "none", fontWeight: "500", textDecorationColor: "rgb(63, 13, 110)" }}>
-                    Register here</Link>
-                </p>
-              </form>
+              </div>
+              <div className="password-details">
+                <div className="remember-me">
+                  <input type="checkbox" name="" id="remember" />
+                  <label htmlFor="remember">Remember me</label>
+                </div>
+                <span className="forgot-password" >Forgot Password?</span>
+              </div>
+              <button className="active" onClick={handleOnSubmit}>Login</button>
+              <p className="or ore">or</p>
+              <button className="google-btn" type="submit">Login with Google</button>
+              <p className="or">Don't have an account?{"  "}
+                <Link className="register-link" to="/register">Register here</Link>
+              </p>
             </div>
           </section>
         </div>
