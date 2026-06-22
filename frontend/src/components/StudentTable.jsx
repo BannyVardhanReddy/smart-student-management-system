@@ -2,7 +2,8 @@ import StudentCard from "./StudentCard"
 
 export default function StudentTable(){
     const student = {
-        name : "Banny",
+        firstName : "Banny",
+        lastName: "Vardhan",
         class : "CSE",
         section: "C",
         roll : "538",
