@@ -1,29 +1,29 @@
 import StudentCard from "./StudentCard"
 
-export default function StudentTable(){
-    const student = {
-        firstName : "Banny",
-        lastName: "Vardhan",
-        class : "CSE",
-        section: "C",
-        roll : "538",
-        email : "bannyvardhan135@gmail.com",
-    }
-    return(
+export default function StudentTable({ students = [], onDeleteStudent, onEditStudent }) {
+    return (
         <div className="table-container">
             <div className="head row">
                 <p>No</p>
                 <p>Name</p>
-                <p>Class</p>
+                <p>Branch</p>
                 <p>Section</p>
                 <p>Roll No</p>
                 <p>E-Mail</p>
             </div>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
+            {students.length === 0 ? (
+                <p style={{ padding: "1rem" }}>No students added yet.</p>
+            ) : (
+                students.map((student, index) => (
+                    <StudentCard
+                        key={student.id ?? `${student.roll || index}-${index}`}
+                        student={student}
+                        idx={index}
+                        onDeleteStudent={onDeleteStudent}
+                        onEditStudent={onEditStudent}
+                    ></StudentCard>
+                ))
+            )}
         </div>
     )
 }

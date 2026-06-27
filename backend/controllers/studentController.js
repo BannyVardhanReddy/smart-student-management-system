@@ -17,7 +17,7 @@ exports.getAllStudents = async (req, res) => {
 
 exports.addStudent = async (req, res) => {
   try{
-    const { firstName, lastName, rollNo, email, phone, classs, section, address, city, state, country } = req.body;
+    const { firstName, lastName, rollNo, email, phone, branch, section, address, city, state, country } = req.body;
     const existingStudent = await Student.findOne({ rollNo: rollNo });
     if(existingStudent){
       return res.status(400).json({
@@ -30,7 +30,7 @@ exports.addStudent = async (req, res) => {
       rollNo: rollNo,
       email: email,
       phone: phone,
-      class: classs,
+      branch: branch,
       section: section,
       address: address,
       city: city,
@@ -51,7 +51,7 @@ exports.addStudent = async (req, res) => {
 
 exports.updateStudent =  async (req, res) => {
   try{
-    const { firstName, lastName, rollNo, email, phone, classs, section, address, city, state, country } = req.body;
+    const { firstName, lastName, rollNo, email, phone, branch, section, address, city, state, country } = req.body;
     const student = await Student.findById(req.params.id);
     if(!student){
       return res.status(404).json({
@@ -63,7 +63,7 @@ exports.updateStudent =  async (req, res) => {
     student.rollNo = rollNo || student.rollNo;
     student.email = email || student.email;
     student.phone = phone || student.phone;
-    student.class = classs || student.class;
+    student.branch = branch || student.branch;
     student.section = section || student.section;
     student.address = address || student.address;
     student.city = city || student.city;
