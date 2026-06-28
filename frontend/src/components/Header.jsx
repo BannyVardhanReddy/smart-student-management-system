@@ -9,6 +9,7 @@ export default function Header() {
     localStorage.removeItem("user");
 
     navigate("/login");
+    navigate("/login");
   }
 
   return (
@@ -26,12 +27,9 @@ export default function Header() {
         <Link to="/dashboard/students" className="link">
           Student
         </Link>
-        <Link to="/dashboard/contact" className="link">
-          Contact
-        </Link>
-        <button onClick={handleOnLogout} className="logout-btn">
-          Logout
-        </button>
+        {/* <p>Contact</p> */}
+        <Link to="/dashboard/contact" className="link">Contact</Link>
+        <button onClick={handleOnLogout} className="logout-btn">Logout</button>
       </div>
     </section>
   );
