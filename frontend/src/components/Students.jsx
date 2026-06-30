@@ -1,9 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Students.css'
 import AddStudent from "./AddStudent";
 import StudentTable from "./StudentTable";
 export default function Students() {
   const [add, setAdd] = useState(false);
+  const [students, setStudents] = useState([]);
+
+  useEffect(()=>{
+    async function fetchStudents() {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await fetch("http://localhost:5000/api/students", {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        setStudents(data.students);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    }
+
+    fetchStudents();
+  },[]);
 
   return (
     <div className="students">
@@ -47,10 +67,10 @@ export default function Students() {
           +Add Student
         </button>
       </div>
-      {add && <AddStudent />}
+      {add && <AddStudent setStudents={setStudents}/>}
 
       {/* <p>Table with students data</p> */}
-      <StudentTable></StudentTable>
+      <StudentTable students={students}></StudentTable>
     </div>
   );
 }

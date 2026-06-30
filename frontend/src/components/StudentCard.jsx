@@ -1,13 +1,13 @@
 import { useState } from "react";
 import EditStudent from "./EditStudent";
 
-export default function StudentCard({ student, idx }) {
+export default function StudentCard({ student, index }) {
   const [edit, setEdit] = useState(false);
 
   return (
     <div className="row-combined">
       <div className="row">
-        <p>{idx + 1}</p>
+        <p>{index + 1}</p>
         <p>{student.firstName+student.lastName}</p>
         <p>{student.class}</p>
         <p>{student.section}</p>
@@ -18,7 +18,7 @@ export default function StudentCard({ student, idx }) {
         <button className="delete-btn">Delete</button>
       </div>
 
-      {edit && <EditStudent student={student}/>}
+      {edit && <EditStudent student={student} setEdit={setEdit}/>}
     </div>
   );
 }

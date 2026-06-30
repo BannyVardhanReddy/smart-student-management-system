@@ -1,14 +1,6 @@
 import StudentCard from "./StudentCard"
 
-export default function StudentTable(){
-    const student = {
-        firstName : "Banny",
-        lastName: "Vardhan",
-        class : "CSE",
-        section: "C",
-        roll : "538",
-        email : "bannyvardhan135@gmail.com",
-    }
+export default function StudentTable({students}){
     return(
         <div className="table-container">
             <div className="head row">
@@ -19,11 +11,9 @@ export default function StudentTable(){
                 <p>Roll No</p>
                 <p>E-Mail</p>
             </div>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
-            <StudentCard student={student} idx="1" ></StudentCard>
+            {students.map((student, index) => (
+                <StudentCard key={student._id} student={student} index={index}/>
+            ))}
         </div>
     )
 }

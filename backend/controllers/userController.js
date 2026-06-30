@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email: LowerCaseEmail });
     if(!user){
         return res.status(401).json({
-            message: "Wrong email or password"
+            message: "Wrong email or password**"+user
         })
     }
 
@@ -76,10 +76,10 @@ exports.login = async (req, res) => {
         password,
         user.password
     )
-
-    if(!isMatch){
+    
+    if(!isMatch){ 
       return res.status(401).json({
-        message:"Wrong email or password"
+        message:"Wrong email or password--"+isMatch
       })
     }
 

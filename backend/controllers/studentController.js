@@ -1,3 +1,4 @@
+// const { default: Students } = require("../../frontend/src/components/Students");
 const Student = require("../models/Student");
 
 exports.getAllStudents = async (req, res) => {
@@ -17,29 +18,40 @@ exports.getAllStudents = async (req, res) => {
 
 exports.addStudent = async (req, res) => {
   try{
-    const { firstName, lastName, rollNo, email, phone, classs, section, address, city, state, country } = req.body;
-    const existingStudent = await Student.findOne({ rollNo: rollNo });
+    // console.log(req.body);
+    const newStudent = req.body;
+    console.log(newStudent)
+    const existingStudent = await Student.findOne({ email: newStudent.email });
+
+    const indexes = await Student.collection.indexes();
+    console.log(indexes);
+
+    console.log(existingStudent);
+
     if(existingStudent){
       return res.status(400).json({
-        message: "Roll number already registered"
+        message: "Email already registered"
       });
     }
-    const newStudent = new Student({
-      firstName: firstName,
-      lastName: lastName,
-      rollNo: rollNo,
-      email: email,
-      phone: phone,
-      class: classs,
-      section: section,
-      address: address,
-      city: city,
-      state: state,
-      country: country
-    });
-    await newStudent.save();
+
+    const x = await Student.create(newStudent);
+    // const newStudent = new Student({
+    //   firstName: firstName,
+    //   lastName: lastName,
+    //   rollNo: rollNo,
+    //   email: email,
+    //   phone: phone,
+    //   class: classs,
+    //   section: section,
+    //   address: address,
+    //   city: city,
+    //   state: state,
+    //   country: country
+    // });
+    // await newStudent.save();
     res.status(200).json({
-      message: "Student added successfully"
+      message: "Student added successfully",
+      student: x
     });
   } catch(error){
     res.status(500).json({
@@ -51,7 +63,11 @@ exports.addStudent = async (req, res) => {
 
 exports.updateStudent =  async (req, res) => {
   try{
-    const { firstName, lastName, rollNo, email, phone, classs, section, address, city, state, country } = req.body;
+    console.log(req.body);
+    const { firstName, lastName, roll, email, phone, classs, section, address, city, state, country } = req.body;
+    const newStudent = req.body;
+    // console.log()
+    
     const student = await Student.findById(req.params.id);
     if(!student){
       return res.status(404).json({
@@ -60,7 +76,7 @@ exports.updateStudent =  async (req, res) => {
     }
     student.firstName = firstName || student.firstName;
     student.lastName = lastName || student.lastName;
-    student.rollNo = rollNo || student.rollNo;
+    student.roll = roll || student.roll;
     student.email = email || student.email;
     student.phone = phone || student.phone;
     student.class = classs || student.class;
