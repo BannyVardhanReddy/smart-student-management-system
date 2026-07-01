@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import  { useState } from "react";
+import axios from "axios";
 
-export default function EditStudent({student: s, setEdit}) {
+export default function EditStudent({student: s, setEdit, setStudents}) {
   const [student, setStudent] = useState(s);
-  // console.log(student);
 
   function handleOnChange(e){
     setStudent({...student,[e.target.name]: e.target.value});
@@ -14,18 +14,43 @@ export default function EditStudent({student: s, setEdit}) {
     setEdit(false);
   }
 
+  async function handleOnSave(e){
+    e.preventDefault(); 
+
+    try{
+      const token = localStorage.getItem("token");
+      const response = await axios.put(
+        `http://localhost:5000/api/students/${student._id}`,
+        student,
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        }
+      );
+      console.log(response.data);
+      alert("Student updated successfully");
+
+      setStudents(prevStudents => prevStudents.map(stu => stu._id === student._id ? student : stu));
+
+      setEdit(false);
+    }catch(err){
+      console.log(err);
+      console.log(err.response.data);
+    }
+  }
   return (
     <div className="add-student-form edit-student-form">
       <form action="">
         <div className="row-1">
           <div className="col">
             <label htmlFor="first-name">First Name</label>
-            <input type="text" name="first-name" id="name" value={student.firstName} onChange={handleOnChange}/>
+            <input type="text" name="firstName" id="name" value={student.firstName} onChange={handleOnChange}/>
           </div>
 
           <div className="col">
             <label htmlFor="last-name">Last Name</label>
-            <input type="text" name="last-name" id="name" value={student.lastName} onChange={handleOnChange}/>
+            <input type="text" name="lastName" id="name" value={student.lastName} onChange={handleOnChange}/>
           </div>
 
           <div className="col">
@@ -63,7 +88,7 @@ export default function EditStudent({student: s, setEdit}) {
 
         <div className="row-3">
             <button className="cancel-btn" onClick={handleOnCancel}>Cancel</button>
-            <button className="add-btn">Save</button>
+            <button className="add-btn" onClick={handleOnSave}>Save</button>
         </div>
       </form>
     </div>

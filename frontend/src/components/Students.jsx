@@ -70,7 +70,7 @@ export default function Students() {
       {add && <AddStudent setStudents={setStudents}/>}
 
       {/* <p>Table with students data</p> */}
-      <StudentTable students={students}></StudentTable>
+      <StudentTable students={students} setStudents={setStudents}></StudentTable>
     </div>
   );
 }

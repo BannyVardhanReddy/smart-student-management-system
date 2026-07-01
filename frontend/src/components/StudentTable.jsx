@@ -1,6 +1,6 @@
 import StudentCard from "./StudentCard"
 
-export default function StudentTable({students}){
+export default function StudentTable({students, setStudents}) {
     return(
         <div className="table-container">
             <div className="head row">
@@ -12,7 +12,7 @@ export default function StudentTable({students}){
                 <p>E-Mail</p>
             </div>
             {students.map((student, index) => (
-                <StudentCard key={student._id} student={student} index={index}/>
+                <StudentCard key={student._id} student={student} index={index} setStudents={setStudents}/>
             ))}
         </div>
     )

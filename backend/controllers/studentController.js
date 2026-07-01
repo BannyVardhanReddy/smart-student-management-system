@@ -61,41 +61,85 @@ exports.addStudent = async (req, res) => {
   }
 };
 
-exports.updateStudent =  async (req, res) => {
-  try{
-    console.log(req.body);
-    const { firstName, lastName, roll, email, phone, classs, section, address, city, state, country } = req.body;
-    const newStudent = req.body;
-    // console.log()
+// exports.updateStudent =  async (req, res) => {
+//   try{
+//     console.log(req.body);
+//     const { firstName, lastName, roll, email, phone, classs, section, address, city, state, country } = req.body;
+//     const newStudent = req.body;
+//     // console.log()
     
-    const student = await Student.findById(req.params.id);
-    if(!student){
+//     const student = await Student.findById(req.params.id);
+//     if(!student){
+//       return res.status(404).json({
+//         message: "Student not found"
+//       });
+//     }
+//     student.firstName = firstName || student.firstName;
+//     student.lastName = lastName || student.lastName;
+//     student.roll = roll || student.roll;
+//     student.email = email || student.email;
+//     student.phone = phone || student.phone;
+//     student.class = classs || student.class;
+//     student.section = section || student.section;
+//     student.address = address || student.address;
+//     student.city = city || student.city;
+//     student.state = state || student.state;
+//     student.country = country || student.country;
+//     await student.save();
+//     res.status(200).json({
+//       message: "Student updated successfully"
+//     });
+//   } catch(error){
+//     res.status(500).json({
+//       message: "Error updating Student",
+//       error: error.message
+//     });
+//   }
+// };
+
+exports.updateStudent = async (req, res) => {
+  try {
+    const student = await Student.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true
+      }
+    );
+
+    if (!student) {
       return res.status(404).json({
         message: "Student not found"
       });
     }
-    student.firstName = firstName || student.firstName;
-    student.lastName = lastName || student.lastName;
-    student.roll = roll || student.roll;
-    student.email = email || student.email;
-    student.phone = phone || student.phone;
-    student.class = classs || student.class;
-    student.section = section || student.section;
-    student.address = address || student.address;
-    student.city = city || student.city;
-    student.state = state || student.state;
-    student.country = country || student.country;
-    await student.save();
+
     res.status(200).json({
-      message: "Student updated successfully"
+      message: "Student updated successfully",
+      student
     });
-  } catch(error){
+
+  } catch (error) {
+
+    if (error.code === 11000) {
+      return res.status(400).json({
+        message: "Email already exists"
+      });
+    }
+
+    if (error.name === "ValidationError") {
+      return res.status(400).json({
+        message: error.message
+      });
+    }
+
     res.status(500).json({
-      message: "Error updating Student",
+      message: "Error updating student",
       error: error.message
     });
   }
 };
+
 
 exports.deleteStudent = async (req, res) => {
   try{
