@@ -65,10 +65,11 @@ main {
   height: 100vh;
 }
 
-.background {
+.background{
   background: linear-gradient(135deg, #f5efff, #ece2ff);
   width: 100%;
   min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +94,7 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   flex: 0 0 50%;
-  min-height: 100%;
+  /* min-height: 100%; */
 }
 
 .image {
