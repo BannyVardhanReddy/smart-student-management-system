@@ -2,34 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap");
 
 :root{
-  /* Backgrounds */
-  --bg: #15131C;            /* page background */
-
-  /* Surfaces */
-  --paper: #211F2B;         /* card / panel background */
-  --paper-alt: #2A2738;     /* input fields, one step lighter than paper */
-
-  /* Text */
-  --text-onbg: #F5F3FA;     /* light text directly on page background */
-  --ink: #F5F3FA;           /* text on cards (cards are dark) */
-  --ink-soft: #9D99AE;      /* secondary/muted text on cards */
-
-  /* Primary accent */
-  --purple: #6C5DD3;       /* primary buttons, links, active states */
-  --purple-dark: #5A4DB8;  /* hover state for primary accent */
-
-  /* Status colors */
-  --coral: #F2785C;         /* inactive / danger / pending */
-  --sage: #34D399;          /* active / success / done */
-
-  /* Lines */
-  --rule: #3A3650;          /* dashed dividers, borders, card outlines */
-
-  /* Accessibility */
-  --focus-ring: #A78BFA;    /* keyboard focus outline */
-
-  /* Radius */
-  --radius: 3px;
+  --bg: #f5efff;
+  --paper: #f8f5ff;
+  --paper-alt: #f7f3ff;
+  --text-onbg: #2f234f;
+  --ink: #2d2350;
+  --ink-soft: #5f567d;
+  --purple: #7b5cf6;
+  --purple-dark: #5d3fe6;
+  --coral: #c2410c;
+  --sage: #15803d;
+  --rule: #cdbefc;
+  --focus-ring: #8c64f7;
+  --radius: 10px;
 }
 
 * {
@@ -40,15 +25,12 @@
 
 #root {
   min-height: 100vh;
-  font-family: "Courier Prime", sans-serif;
+  font-family: "Work Sans", sans-serif;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  color: white;
-
-  background: radial-gradient(circle at 20% -10%, #2A2440 0%, transparent 55%),
-      var(--bg);
+  background: linear-gradient(135deg, #f5efff, #ece2ff);
   color: var(--ink);
 }
 

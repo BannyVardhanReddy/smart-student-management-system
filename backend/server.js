@@ -235,3 +235,24 @@ app.listen(process.env.PORT, () => {
 //   }
 // });
 
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const Student = require("./models/Student");
+// require("dotenv").config();
+
+// const app = express();
+
+// mongoose.connect(process.env.MONGO_URI)
+// .then(async () => {
+//   console.log("DB connected");
+
+//   try {
+//     await Student.collection.dropIndex("rollNo_1");
+//     console.log("rollNo index removed");
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+
+//   app.listen(5000);
+// });
+

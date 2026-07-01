@@ -12,11 +12,10 @@ const studentSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
-    rollNo : {
+    roll : {
       type: String,
       required: true,
       trim: true,
-      unique: true
     },
     class : {
       type: String,
@@ -39,26 +38,11 @@ const studentSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
-    address : {
-      type: String,
-      required: true,
-      trim: true
-    },
     city : {
       type: String,
       required: true,
       trim: true
-    },
-    state : {
-      type: String,
-      required: true,
-      trim: true
-    },
-    country : {
-      type: String,
-      required: true,
-      trim: true
-    },
+    }
   },
   {
     timestamps: true,

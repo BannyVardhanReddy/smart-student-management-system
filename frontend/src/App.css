@@ -1,64 +1,65 @@
-.home-header{
+.home-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  gap: 1rem;
   padding-block: 1rem;
   padding-inline: 4rem;
-
   border-bottom: 1px solid var(--rule);
+  background: rgba(248, 245, 255, 0.72);
+  backdrop-filter: blur(10px);
 }
 
-.right{
-  font-size: 1.1rem;
-  
+.right {
+  font-size: 1.05rem;
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.link{
-  color: blanchedalmond;
+.link {
+  color: #5d3fe6;
   text-decoration: none;
+  font-weight: 600;
 }
 
-.logout-btn{
-  padding: 0.5rem 1rem;
-  background-color: var(--purple);
-  color: var(--ink);
-
+.logout-btn {
+  padding: 0.7rem 1.05rem;
+  background: linear-gradient(90deg, #7b5cf6, #9b5de5);
+  color: #ffffff;
   border: none;
   outline: none;
-
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
 }
 
-.logout-btn:hover{
+.logout-btn:hover {
   cursor: pointer;
-  background-color: var(--purple-dark);
+  background: linear-gradient(90deg, #6a4ff0, #8f53dd);
 }
 
-.footer{
+.footer {
   width: 100%;
-  
   text-align: center;
   padding-block: 1rem;
   padding-inline: 4rem;
-
   border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  background: rgba(248, 245, 255, 0.72);
+  backdrop-filter: blur(10px);
 }
 
-.footer p{
-  font-size: 1.1rem;
+.footer p {
+  font-size: 1rem;
 }
 
-main{
+main {
   padding-inline: 4rem;
   padding-block-end: 1rem;
 }
-
 
 .login-section {
   height: 100vh;
@@ -84,6 +85,7 @@ main{
   display: flex;
   overflow: hidden;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(205, 190, 252, 0.8);
 }
 
 .image,
@@ -276,7 +278,6 @@ button:active {
   margin: 0.8rem 0;
 }
 
-
 .register-link {
   color: #7a5de8;
   font-weight: 600;
@@ -308,4 +309,40 @@ button:active {
   min-height: 0.9rem;
   accent-color: #7a5de8;
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .home-header,
+  .footer,
+  main {
+    padding-inline: 2rem;
+  }
+
+  .main {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .image,
+  .image2 {
+    min-height: 240px;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .background {
+    padding: 1rem;
+  }
+
+  .home-header,
+  .footer,
+  main {
+    padding-inline: 1rem;
+  }
+
+  .login-section,
+  .registration-section {
+    padding: 1.5rem 1rem;
+  }
 }
