@@ -1,4 +1,4 @@
-.students > * {
+/* .students > * {
   padding-block: 0.75rem;
 }
 
@@ -216,4 +216,4 @@
 .edit-btn:hover, .delete-btn:hover{
     cursor: pointer;
     background-color: var(--purple);
-}
+} */
