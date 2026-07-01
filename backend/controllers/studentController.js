@@ -20,13 +20,13 @@ exports.addStudent = async (req, res) => {
   try{
     // console.log(req.body);
     const newStudent = req.body;
-    console.log(newStudent)
+    // console.log(newStudent)
     const existingStudent = await Student.findOne({ email: newStudent.email });
 
-    const indexes = await Student.collection.indexes();
-    console.log(indexes);
+    // const indexes = await Student.collection.indexes();
+    // console.log(indexes);
 
-    console.log(existingStudent);
+    // console.log(existingStudent);
 
     if(existingStudent){
       return res.status(400).json({

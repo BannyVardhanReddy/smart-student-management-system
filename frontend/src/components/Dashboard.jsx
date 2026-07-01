@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from "react";
 export default function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [students, setStudents] = useState([]);
-
+  const today = new Date();
   useEffect(() => {
       async function fetchStudents() {
         try {
@@ -40,12 +40,12 @@ export default function Dashboard() {
   return (
     <>
       <div className="greeting-container">
-        <div className="greeting">
+        <div className="greeting" style={{ margin: "10px 0px" }}>
           <h1>Welcome back, {user.fullName}</h1>
           <p>Here's what happening across your students.</p>
         </div>
 
-        <p>Saturday, June 20 2026</p>
+        <h2>{today.toDateString()}</h2>
       </div>
       
       <div className="data-cards">
