@@ -8,11 +8,16 @@ export default function Dashboard() {
       async function fetchStudents() {
         try {
           const token = localStorage.getItem("token");
-          const response = await fetch("http://localhost:5000/api/students", {
+          const user = JSON.parse(localStorage.getItem("user"));
+          const userId = user?._id || user?.id;
+          const response = await fetch(
+            `http://localhost:5000/api/students${userId ? `?userId=${userId}` : ""}`,
+            {
             headers: {
               authorization: `Bearer ${token}`,
             },
-          });
+            }
+          );
           const data = await response.json();
           setStudents(data.students);
         } catch (error) {

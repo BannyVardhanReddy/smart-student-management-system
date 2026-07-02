@@ -3,7 +3,15 @@ const Student = require("../models/Student");
 
 exports.getAllStudents = async (req, res) => {
   try{
-    const students = await Student.find();
+    const requestedUserId = req.query.userId || req.user.id;
+
+    if (requestedUserId !== req.user.id) {
+      return res.status(403).json({
+        message: "Forbidden"
+      });
+    }
+
+    const students = await Student.find({ user: requestedUserId });
     res.status(200).json({
       message: "Students fetched successfully",
       students
@@ -18,10 +26,14 @@ exports.getAllStudents = async (req, res) => {
 
 exports.addStudent = async (req, res) => {
   try{
-    // console.log(req.body);
-    const newStudent = req.body;
-    // console.log(newStudent)
-    const existingStudent = await Student.findOne({ email: newStudent.email });
+    const newStudent = {
+      ...req.body,
+      user: req.user.id
+    };
+    const existingStudent = await Student.findOne({
+      email: newStudent.email,
+      user: req.user.id
+    });
 
     // const indexes = await Student.collection.indexes();
     // console.log(indexes);
@@ -35,20 +47,6 @@ exports.addStudent = async (req, res) => {
     }
 
     const x = await Student.create(newStudent);
-    // const newStudent = new Student({
-    //   firstName: firstName,
-    //   lastName: lastName,
-    //   rollNo: rollNo,
-    //   email: email,
-    //   phone: phone,
-    //   class: classs,
-    //   section: section,
-    //   address: address,
-    //   city: city,
-    //   state: state,
-    //   country: country
-    // });
-    // await newStudent.save();
     res.status(200).json({
       message: "Student added successfully",
       student: x
@@ -99,8 +97,11 @@ exports.addStudent = async (req, res) => {
 
 exports.updateStudent = async (req, res) => {
   try {
-    const student = await Student.findByIdAndUpdate(
-      req.params.id,
+    const student = await Student.findOneAndUpdate(
+      {
+        _id: req.params.id,
+        user: req.user.id
+      },
       req.body,
       {
         new: true,
@@ -143,7 +144,10 @@ exports.updateStudent = async (req, res) => {
 
 exports.deleteStudent = async (req, res) => {
   try{
-    const student = await Student.findById(req.params.id);
+    const student = await Student.findOne({
+      _id: req.params.id,
+      user: req.user.id
+    });
     if(!student){
       return res.status(404).json({
         message: "Student not found"

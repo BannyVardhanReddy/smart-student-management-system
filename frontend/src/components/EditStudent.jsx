@@ -2,7 +2,12 @@ import  { useState } from "react";
 import axios from "axios";
 
 export default function EditStudent({student: s, setEdit, setStudents}) {
-  const [student, setStudent] = useState(s);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUserId = currentUser?._id || currentUser?.id || "";
+  const [student, setStudent] = useState({
+    ...s,
+    user: s.user || currentUserId
+  });
 
   function handleOnChange(e){
     setStudent({...student,[e.target.name]: e.target.value});
