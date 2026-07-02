@@ -1,6 +1,8 @@
 import  { useState } from "react";
 import axios from "axios";
 export default function AddStudent({setStudents}) {
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUserId = currentUser?._id || currentUser?.id || "";
   // console.log(localStorage.getItem("token"));
   const [data,setData] = useState({
     firstName: "",
@@ -10,7 +12,8 @@ export default function AddStudent({setStudents}) {
     section: "",
     email: "",
     phone: "",
-    city: ""
+    city: "",
+    user: currentUserId
   });
 
   function handleOnChange(e){
@@ -45,7 +48,8 @@ export default function AddStudent({setStudents}) {
         section: "",
         email: "",
         phone: "",
-        city: ""
+        city: "",
+        user: currentUserId
       });
     }catch(err){
       console.log(err.response.data);
